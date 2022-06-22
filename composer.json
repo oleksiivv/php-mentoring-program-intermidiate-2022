@@ -1,0 +1,16 @@
+{
+  "autoload": {
+    "psr-4": {
+      "tests\\": "tests/",
+      "src\\": "src/",
+      "dsAndAlgorithms\\": "src/dsAndAlgorithms"
+    }
+  },
+  "require": {
+    "php": "^8.0",
+    "phpunit/phpunit": "^9.2",
+    "guzzlehttp/guzzle": "^7.3",
+    "symfony/dom-crawler": "^4.1@dev",
+    "symfony/css-selector": "^4.1@dev"
+  }
+}
