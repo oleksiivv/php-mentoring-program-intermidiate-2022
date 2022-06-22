@@ -4,6 +4,13 @@ namespace src\dsAndAlgorithms;
 
 class HourglassCalculation
 {
+    private array $input;
+    
+    public function __construct(array $input)
+    {
+        $this->input = $input;
+    }
+
     private function countSingleHourglassSum(array $hourglass): int
     {
         $sum = 0;
@@ -30,21 +37,21 @@ class HourglassCalculation
         return array_slice($hourglass, $x, 3);
     }
 
-    public function getHourglassesSums(array $input): array
+    public function getHourglassesSums(): array
     {
         $hourglassesSum = [];
 
-        for ($i = 0; $i < count($input)-2; $i++) {
-            for ($j = 0; $j < count($input[$i])-2; $j++) {
-                $hourglassesSum[$i][] = $this->countSingleHourglassSum($this->extractHourglassFromElement($input, $i, $j));
+        for ($i = 0; $i < count($this->input) - 2; $i++) {
+            for ($j = 0; $j < count($this->input[$i]) - 2; $j++) {
+                $hourglassesSum[$i][] = $this->countSingleHourglassSum($this->extractHourglassFromElement($this->input, $i, $j));
             }
         }
 
         return $hourglassesSum;
     }
 
-    public function getMaxHourglassSum(array $input): int
+    public function getMaxHourglassSum(): int
     {
-        return max(array_merge(...$this->getHourglassesSums($input)));
+        return max(array_merge(...$this->getHourglassesSums()));
     }
 }

@@ -12,11 +12,11 @@ class HourglassCalculationTest extends TestCase
      */
     public function testHourglassesCalculationWorksCorrectly(array $input, array $expectedHourglassesSums, int $expectedMaxHourglassSum)
     {
-        $hourglassCalculation = new HourglassCalculation();
+        $hourglassCalculation = new HourglassCalculation($input);
 
-        $hourglassesSums = $hourglassCalculation->getHourglassesSums($input);
+        $hourglassesSums = $hourglassCalculation->getHourglassesSums();
 
-        $maxHourglassSum = $hourglassCalculation->getMaxHourglassSum($input);
+        $maxHourglassSum = $hourglassCalculation->getMaxHourglassSum();
 
         $this->assertSame($expectedHourglassesSums, $hourglassesSums);
         $this->assertSame($expectedMaxHourglassSum, $maxHourglassSum);

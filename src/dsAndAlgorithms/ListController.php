@@ -13,7 +13,7 @@ class ListController
         $this->splDoublyLinkedList = new SplDoublyLinkedList();
     }
 
-    public function addElementAtBegin($element): SplDoublyLinkedList
+    public function addElementAtBeginning($element): SplDoublyLinkedList
     {
         $this->splDoublyLinkedList->unshift($element);
 

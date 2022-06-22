@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class ArrayRotationTest extends TestCase
 {
     /**
-     * @dataProvider hourglassesSumDataProvider
+     * @dataProvider arrayDataProvider
      */
     public function testPerformArrayRotationWorksCorrectly(array $input, int $step, array $expectedResult)
     {
@@ -17,7 +17,7 @@ class ArrayRotationTest extends TestCase
         $this->assertSame($expectedResult, $result);
     }
 
-    public function hourglassesSumDataProvider(): array
+    public function arrayDataProvider(): array
     {
         return [
             [

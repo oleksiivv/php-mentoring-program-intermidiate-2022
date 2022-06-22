@@ -8,20 +8,20 @@ use src\dsAndAlgorithms\ListController;
 class ListControllerTest extends TestCase
 {
     /**
-     * @dataProvider hourglassesSumDataProvider
+     * @dataProvider listDataProvider
      */
-    public function testAddElementAtBeginWorksCorrectly(array $elements, array $expectedOrder)
+    public function testAddElementAtBeginningWorksCorrectly(array $elements, array $expectedOrder)
     {
         $listController = new ListController();
 
         foreach ($elements as $element) {
-            $listController->addElementAtBegin($element);
+            $listController->addElementAtBeginning($element);
         }
 
         $this->assertSame($expectedOrder, $listController->toArray());
     }
 
-    public function hourglassesSumDataProvider(): array
+    public function listDataProvider(): array
     {
         return [
             [
