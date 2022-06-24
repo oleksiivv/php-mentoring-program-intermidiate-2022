@@ -20,7 +20,7 @@ if (isset($_GET['perform_rotate'])) {
 }
 
 if (isset($_GET['perform_add_list_elements'])) {
-    $elements = explode('|', $_GET['list_elements']);
+    $elements = explode(' ', $_GET['list_elements']);
     $listController = new ListController();
 
     foreach ($elements as $element) {
