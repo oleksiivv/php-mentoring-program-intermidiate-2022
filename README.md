@@ -1,0 +1,1 @@
+For running tests: `.\vendor\bin\phpunit tests`
