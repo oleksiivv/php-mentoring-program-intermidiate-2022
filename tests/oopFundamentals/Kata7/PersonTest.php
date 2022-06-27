@@ -22,16 +22,16 @@ class PersonTest extends TestCase
 
     public function testIntroduceWorksCorrectly()
     {
-        $this->assertSame(sprintf(Person::INTRODUCE_STRING, $this->person->getName()), $this->person->introduce());
+        $this->assertSame(sprintf(Person::INTRODUCE_FORMAT, $this->person->getName()), $this->person->introduce());
     }
 
     public function testDescribeJobWorksCorrectly()
     {
-        $this->assertSame(sprintf(Person::DESCRIBE_JOB_STRING, $this->person->getOccupation()), $this->person->describeJob());
+        $this->assertSame(sprintf(Person::DESCRIBE_JOB_FORMAT, $this->person->getOccupation()), $this->person->describeJob());
     }
 
     public function testGreetExtraterrestrialsWorksCorrectly()
     {
-        $this->assertSame(sprintf(Person::GREET_EXTRATERRESTRIALS_STRING, Person::SPECIES), $this->person->greetExtraterrestrials());
+        $this->assertSame(sprintf(Person::GREET_EXTRATERRESTRIALS_FORMAT, Person::SPECIES), $this->person->greetExtraterrestrials());
     }
 }

@@ -15,6 +15,6 @@ class ComputerProgrammerTest extends TestCase
 
         $person = new ComputerProgrammer($age, $name, $occupation);
 
-        $this->assertSame(sprintf(ComputerProgrammer::INTRODUCE_STRING, $name, $occupation), $person->introduce());
+        $this->assertSame(sprintf(ComputerProgrammer::INTRODUCE_FORMAT, $name, $occupation), $person->introduce());
     }
 }

@@ -32,20 +32,20 @@ class ChildTest extends TestCase
 
     public function testIntroduceWorksCorrectly()
     {
-        $this->assertSame(sprintf(Child::INTRODUCE_STRING, $this->name, $this->age), $this->child->introduce());
+        $this->assertSame(sprintf(Child::INTRODUCE_FORMAT, $this->name, $this->age), $this->child->introduce());
     }
 
     public function testGreetWorksCorrectly()
     {
         $name = 'Bruce';
 
-        $this->assertSame(sprintf(Child::GREET_STRING, $name), $this->child->greet($name));
+        $this->assertSame(sprintf(Child::GREET_FORMAT, $name), $this->child->greet($name));
     }
 
     public function testSayDreamsWorksCorrectly()
     {
         $aspirations = 'Teacher, Doctor, Police Officer';
 
-        $this->assertSame(sprintf(Child::DREAMS_STRING, $aspirations), $this->child->sayDreams());
+        $this->assertSame(sprintf(Child::DREAMS_FORMAT, $aspirations), $this->child->sayDreams());
     }
 }

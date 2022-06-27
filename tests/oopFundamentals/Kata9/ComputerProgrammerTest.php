@@ -30,7 +30,7 @@ class ComputerProgrammerTest extends TestCase
     public function testIntroduceWorksCorrectly()
     {
         $this->assertSame(
-            sprintf(ComputerProgrammer::INTRODUCE_STRING, $this->name, $this->age, ComputerProgrammer::OCCUPATION),
+            sprintf(ComputerProgrammer::INTRODUCE_FORMAT, $this->name, $this->age, ComputerProgrammer::OCCUPATION),
             $this->computerProgrammer->introduce(),
         );
     }
@@ -40,13 +40,13 @@ class ComputerProgrammerTest extends TestCase
         $name = 'Bruce';
 
         $this->assertSame(
-            sprintf(ComputerProgrammer::GREET_STRING, $name, $this->computerProgrammer->name),
+            sprintf(ComputerProgrammer::GREET_FORMAT, $name, $this->computerProgrammer->name),
             $this->computerProgrammer->greet($name),
         );
     }
 
     public function testAdvertiseWorksCorrectly()
     {
-        $this->assertSame(ComputerProgrammer::ADVERTISE_STRING, $this->computerProgrammer->advertise());
+        $this->assertSame(ComputerProgrammer::ADVERTISE_FORMAT, $this->computerProgrammer->advertise());
     }
 }
