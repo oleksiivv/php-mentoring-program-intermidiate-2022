@@ -44,6 +44,18 @@ class PersonTest extends TestCase
         (new Person($age, $name, $occupation));
     }
 
+    public function testNameValidationWorksCorrectly()
+    {
+        $age = 20;
+        $name = 11;
+        $occupation = 'Student';
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(Person::NAME_VALIDATION_ERROR);
+
+        (new Person($age, $name, $occupation));
+    }
+
     public function testSettersWorksCorrectly()
     {
         $person = new Person(11, 'John Doe', 'Waiter');
