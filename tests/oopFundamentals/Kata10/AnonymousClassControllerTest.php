@@ -17,7 +17,7 @@ class AnonymousClassControllerTest extends TestCase
         $kataNumber = 5;
 
         $this->assertSame(10, $objectOrientedPhp->getKataCount());
-        $this->assertSame(AnonymousClassController::COURSE_KATA_LIST[5], $objectOrientedPhp->getKataByNumber($kataNumber));
+        $this->assertSame(AnonymousClassController::COURSE_KATA_LIST[$kataNumber - 1], $objectOrientedPhp->getKataByNumber($kataNumber));
 
         $this->assertSame(
             sprintf(AnonymousClassController::COURSE_ADVERTISE_FORMAT, $name),

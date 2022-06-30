@@ -50,11 +50,11 @@ $objectOrientedPhp = new class(AnonymousClassController::COURSE_DESCRIPTION, Ano
 
     public function getKataByNumber(int $kataNumber): string
     {
-        if ($kataNumber >= 10 || $kataNumber < 0) {
-            throw new InvalidArgumentException('Kata number must be in diapason 0...10');
+        if ($kataNumber > 10 || $kataNumber < 1) {
+            throw new InvalidArgumentException('Kata number must be in diapason 1...10');
         }
 
-        return $this->kataList[$kataNumber];
+        return $this->kataList[$kataNumber-1];
     }
 
     public function complete(): string
