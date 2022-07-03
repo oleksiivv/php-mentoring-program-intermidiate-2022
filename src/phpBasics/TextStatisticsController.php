@@ -16,6 +16,42 @@ class TextStatisticsController
         return $this->text;
     }
 
+    public function processText(): array
+    {
+        $timeStart = microtime(true);
+
+        $result = [
+            'text' => $this->text,
+            'number of characters' => $this->getNumberOfCharacters(),
+            'number of words' => $this->getNumberOfWords(),
+            'number of sentences' => $this->getNumberOfSentences(),
+            'frequency of characters' => $this->getCharactersFrequency(),
+            'distribution of characters' => $this->getCharactersDistributionAsPercentageOfTotal(),
+            'average word length' => $this->getAverageWordLength(),
+            'average number of words in sentence' => $this->getAverageNumberOfWordsInSentence(),
+            'ten most used words' => $this->getMostUsedWords(10),
+            'ten longest words' => $this->getLongestWords(10),
+            'ten shortest words' => $this->getShortestWords(10),
+            'ten longest sentences' => $this->getLongestSentences(10),
+            'ten shortest sentences' => $this->getShortestSentences(10),
+            'number of palindrome words' => $this->getNumberOfPalindromes(),
+            'ten longest palindromes' => $this->getLongestPalindromes(10),
+            'ten shortest palindromes' => $this->getShortestPalindromes(10),
+            'is palindrome' => $this->isPalindrome() ? 'yes' : 'not',
+            'generated at' => date("Y-m-d H:i:s"),
+            'reversed text' => $this->getReversed(),
+            'text in reversed order' => $this->getInReversedOrder(),
+        ];
+
+        $timeEnd = microtime(true);
+
+        $executionTime = ($timeEnd - $timeStart) / 60;
+
+        $result['executionTime'] = $executionTime;
+
+        return $result;
+    }
+
     public function getNumberOfCharacters(): int
     {
         return strlen($this->text);
@@ -90,52 +126,6 @@ class TextStatisticsController
         arsort($wordsFrequency);
 
         return array_slice($wordsFrequency, 0, $limit);
-    }
-
-    private function getEachSentenceLength(): array
-    {
-        $sentences = $this->getSentences();
-        $sentencesLengths = [];
-
-        foreach ($sentences as $sentence) {
-            $sentencesLengths[$sentence] = strlen($sentence);
-        }
-
-        return $sentencesLengths;
-    }
-
-    private function getSentences(): array
-    {
-        return preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $this->text);
-    }
-
-    private function getEachPalindromeLength(): array
-    {
-        $words = preg_split('/\s+/', $this->text);
-
-        $palindromes = array_filter($words, function ($item) {
-            return strrev($item) === $item;
-        });
-
-        return $this->getEachWordLengthFromArray($palindromes);
-    }
-
-    private function getEachWordLengthFromText(string $text): array
-    {
-        $words = str_word_count($text, 1);
-
-        return $this->getEachWordLengthFromArray($words);
-    }
-
-    private function getEachWordLengthFromArray(array $words): array
-    {
-        $wordsLengths = [];
-
-        foreach ($words as $word) {
-            $wordsLengths[$word] = strlen($word);
-        }
-
-        return $wordsLengths;
     }
 
     public function getLongestWords(int $limit): array
@@ -245,39 +235,49 @@ class TextStatisticsController
         return $temp . $out;
     }
 
-    public function processText(): array
+    private function getEachSentenceLength(): array
     {
-        $timeStart = microtime(true);
+        $sentences = $this->getSentences();
+        $sentencesLengths = [];
 
-        $result = [
-            'text' => $this->text,
-            'number of characters' => $this->getNumberOfCharacters(),
-            'number of words' => $this->getNumberOfWords(),
-            'number of sentences' => $this->getNumberOfSentences(),
-            'frequency of characters' => $this->getCharactersFrequency(),
-            'distribution of characters' => $this->getCharactersDistributionAsPercentageOfTotal(),
-            'average word length' => $this->getAverageWordLength(),
-            'average number of words in sentence' => $this->getAverageNumberOfWordsInSentence(),
-            'ten most used words' => $this->getMostUsedWords(10),
-            'ten longest words' => $this->getLongestWords(10),
-            'ten shortest words' => $this->getShortestWords(10),
-            'ten longest sentences' => $this->getLongestSentences(10),
-            'ten shortest sentences' => $this->getShortestSentences(10),
-            'number of palindrome words' => $this->getNumberOfPalindromes(),
-            'ten longest palindromes' => $this->getLongestPalindromes(10),
-            'ten shortest palindromes' => $this->getShortestPalindromes(10),
-            'is palindrome' => $this->isPalindrome() ? 'yes' : 'not',
-            'generated at' => date("Y-m-d H:i:s"),
-            'reversed text' => $this->getReversed(),
-            'text in reversed order' => $this->getInReversedOrder(),
-        ];
+        foreach ($sentences as $sentence) {
+            $sentencesLengths[$sentence] = strlen($sentence);
+        }
 
-        $timeEnd = microtime(true);
+        return $sentencesLengths;
+    }
 
-        $executionTime = ($timeEnd - $timeStart) / 60;
+    private function getSentences(): array
+    {
+        return preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $this->text);
+    }
 
-        $result['executionTime'] = $executionTime;
+    private function getEachPalindromeLength(): array
+    {
+        $words = preg_split('/\s+/', $this->text);
 
-        return $result;
+        $palindromes = array_filter($words, function ($item) {
+            return strrev($item) === $item;
+        });
+
+        return $this->getEachWordLengthFromArray($palindromes);
+    }
+
+    private function getEachWordLengthFromText(string $text): array
+    {
+        $words = str_word_count($text, 1);
+
+        return $this->getEachWordLengthFromArray($words);
+    }
+
+    private function getEachWordLengthFromArray(array $words): array
+    {
+        $wordsLengths = [];
+
+        foreach ($words as $word) {
+            $wordsLengths[$word] = strlen($word);
+        }
+
+        return $wordsLengths;
     }
 }
