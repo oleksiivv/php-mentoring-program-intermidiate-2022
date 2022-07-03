@@ -47,7 +47,7 @@ class TextStatisticsController
 
         $executionTime = ($timeEnd - $timeStart) / 60;
 
-        $result['executionTime'] = $executionTime;
+        $result['execution time'] = $executionTime;
 
         return $result;
     }
