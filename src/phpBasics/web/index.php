@@ -1,7 +1,5 @@
 <?php
 
-header('Content-Type: text/html; charset=utf-8');
-
 require_once '../TextStatisticsController.php';
 
 use src\phpBasics\TextStatisticsController;
@@ -25,8 +23,6 @@ if (isset($_POST['submit'])) {
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>PHP Basics</title>
     <style>
         table, th, td {
@@ -36,7 +32,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
-<form method="POST" action="" accept-charset="UTF-8">
+<form method="POST" action="">
     <h3>Process Text</h3>
     <textarea name="text" placeholder="Text:"></textarea>
     <br/>
