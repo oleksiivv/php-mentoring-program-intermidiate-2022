@@ -21,7 +21,7 @@ class TextStatisticsControllerTest extends TestCase
         $text = 'Hello world';
         $this->textStatisticsController->setText($text);
 
-        $this->assertSame(strlen($text), $this->textStatisticsController->getNumberOfCharacters());
+        $this->assertSame(mb_strlen($text), $this->textStatisticsController->getNumberOfCharacters());
     }
 
     public function testGetNumberOfWordsWorksCorrectly()
@@ -29,7 +29,7 @@ class TextStatisticsControllerTest extends TestCase
         $text = 'Hello world! Some test txt 4';
         $this->textStatisticsController->setText($text);
 
-        $numberOfWords = 5;
+        $numberOfWords = 6;
 
         $this->assertSame($numberOfWords, $this->textStatisticsController->getNumberOfWords());
     }
@@ -92,7 +92,7 @@ class TextStatisticsControllerTest extends TestCase
     public function testGetAverageNumberOfWordsInSentenceWorksCorrectly()
     {
         $text = 'Sentence 1. Sentence number 2. Sentence sentence sentence 3!';
-        $averageNumberOfWords = 2;
+        $averageNumberOfWords = 3;
 
         $this->textStatisticsController->setText($text);
 
@@ -101,7 +101,7 @@ class TextStatisticsControllerTest extends TestCase
 
     public function testGetMostUsedWordsWorksCorrectly()
     {
-        $text = 'Lorem Ipsum is is simply dummy text text of the printing and typesetting industry word word word. Lorem Ipsum text text.';
+        $text = 'Lorem Ipsum is is simply dummy text text of the printing and typesetting industry word word word Lorem Ipsum text text';
         $topFiveWords = [
             'text' => 4,
             'word' => 3,
@@ -150,9 +150,9 @@ class TextStatisticsControllerTest extends TestCase
         $text = 'Sentence number 1. Sentence number 2 with more words. Sentence. Longest sentence with some random text. Sentence n.';
 
         $topThreeSentences = [
-            'Longest sentence with some random text.' => strlen('Longest sentence with some random text.'),
-            'Sentence number 2 with more words.' => strlen('Sentence number 2 with more words.'),
-            'Sentence number 1.' => strlen('Sentence number 1.'),
+            'Longest sentence with some random text.' => mb_strlen('Longest sentence with some random text.'),
+            'Sentence number 2 with more words.' => mb_strlen('Sentence number 2 with more words.'),
+            'Sentence number 1.' => mb_strlen('Sentence number 1.'),
         ];
 
         $this->textStatisticsController->setText($text);
@@ -165,9 +165,9 @@ class TextStatisticsControllerTest extends TestCase
         $text = 'Sentence number 1. Sentence number 2 with more words. Sentence. Longest sentence with some random text. Sentence n.';
 
         $topThreeSentences = [
-            'Sentence.' => strlen('Sentence.'),
-            'Sentence n.' => strlen('Sentence n.'),
-            'Sentence number 1.' => strlen('Sentence number 1.'),
+            'Sentence.' => mb_strlen('Sentence.'),
+            'Sentence n.' => mb_strlen('Sentence n.'),
+            'Sentence number 1.' => mb_strlen('Sentence number 1.'),
         ];
 
         $this->textStatisticsController->setText($text);

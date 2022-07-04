@@ -54,12 +54,12 @@ class TextStatisticsController
 
     public function getNumberOfCharacters(): int
     {
-        return strlen($this->text);
+        return mb_strlen($this->text);
     }
 
     public function getNumberOfWords(): int
     {
-        return str_word_count($this->text);
+        return count($this->getWords());
     }
 
     public function getNumberOfSentences(): int
@@ -69,12 +69,9 @@ class TextStatisticsController
 
     public function getCharactersFrequency(): array
     {
-        $asciiFrequency = count_chars(strtolower($this->text), 1);
-        $frequency = [];
+        $frequency = mb_str_split(mb_strtolower($this->text));
 
-        foreach ($asciiFrequency as $key=>$value) {
-            $frequency[chr($key)] = $value;
-        }
+        $frequency = array_count_values($frequency);
 
         arsort($frequency);
 
@@ -98,8 +95,8 @@ class TextStatisticsController
     public function getAverageWordLength(): ?int
     {
         $wordsLength = array_map(function ($item) {
-            return strlen($item);
-        }, str_word_count($this->text, 1));
+            return mb_strlen($item);
+        }, $this->getWords());
 
         $wordsCount = count($wordsLength);
 
@@ -119,7 +116,7 @@ class TextStatisticsController
 
     public function getMostUsedWords(int $limit): array
     {
-        $words = str_word_count($this->text, 1);
+        $words = $this->getWords();
 
         $wordsFrequency = array_count_values($words);
 
@@ -166,11 +163,11 @@ class TextStatisticsController
 
     public function getNumberOfPalindromes(): int
     {
-        $words = preg_split('/\s+/', $this->text);
+        $words = $this->getWords();
         $count = 0;
 
         foreach ($words as $word) {
-            if (strrev($word) === $word) {
+            if ($this->getReversedString($word) === $word) {
                 $count++;
             }
         }
@@ -201,14 +198,14 @@ class TextStatisticsController
         $charsToBeRemoved = ['?', '!', ',', ';', ':', ' ', '.'];
 
         $onlyText = str_replace($charsToBeRemoved, '', $this->text);
-        $onlyText = strtolower($onlyText);
+        $onlyText = mb_strtolower($onlyText);
 
-        return $onlyText === strrev($onlyText);
+        return $onlyText === $this->getReversedString($onlyText);
     }
 
     public function getReversed(): string
     {
-        return strrev($this->text);
+        return $this->getReversedString($this->text);
     }
 
     public function getInReversedOrder(): string
@@ -235,29 +232,38 @@ class TextStatisticsController
         return $temp . $out;
     }
 
+    private function getWords(): array
+    {
+        $charsToBeRemoved = ['?', '!', ',', ';', ':', '.'];
+
+        $onlyText = str_replace($charsToBeRemoved, '', $this->text);
+
+        return preg_split('/\s+/', $onlyText);
+    }
+
+    private function getSentences(): array
+    {
+        return preg_split('/(?<=[.!?])\s+/u', $this->text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+    }
+
     private function getEachSentenceLength(): array
     {
         $sentences = $this->getSentences();
         $sentencesLengths = [];
 
         foreach ($sentences as $sentence) {
-            $sentencesLengths[$sentence] = strlen($sentence);
+            $sentencesLengths[$sentence] = mb_strlen($sentence);
         }
 
         return $sentencesLengths;
     }
 
-    private function getSentences(): array
-    {
-        return preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $this->text);
-    }
-
     private function getEachPalindromeLength(): array
     {
-        $words = preg_split('/\s+/', $this->text);
+        $words = $this->getWords();
 
         $palindromes = array_filter($words, function ($item) {
-            return strrev($item) === $item;
+            return $this->getReversedString($item) === $item;
         });
 
         return $this->getEachWordLengthFromArray($palindromes);
@@ -265,7 +271,7 @@ class TextStatisticsController
 
     private function getEachWordLengthFromText(string $text): array
     {
-        $words = str_word_count($text, 1);
+        $words = $this->getWords();
 
         return $this->getEachWordLengthFromArray($words);
     }
@@ -275,9 +281,16 @@ class TextStatisticsController
         $wordsLengths = [];
 
         foreach ($words as $word) {
-            $wordsLengths[$word] = strlen($word);
+            $wordsLengths[$word] = mb_strlen($word);
         }
 
         return $wordsLengths;
+    }
+
+    private function getReversedString(string $text): string
+    {
+        preg_match_all('/./us', $text, $stringAsArray);
+
+        return join('', array_reverse($stringAsArray[0]));
     }
 }
