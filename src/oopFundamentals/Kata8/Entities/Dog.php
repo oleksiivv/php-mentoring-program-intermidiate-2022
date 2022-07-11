@@ -1,9 +1,9 @@
 <?php
 
-namespace src\oopFundamentals\Kata8\Entities;
+namespace oopFundamentals\Kata8\Entities;
 
-use src\oopFundamentals\Kata8\CanGreet;
-use src\oopFundamentals\Kata8\CanSwim;
+use oopFundamentals\Kata8\CanGreet;
+use oopFundamentals\Kata8\CanSwim;
 
 class Dog implements CanSwim, CanGreet
 {

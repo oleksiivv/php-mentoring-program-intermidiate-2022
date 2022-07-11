@@ -1,8 +1,8 @@
 <?php
 
-namespace tests\dsAndAlgorithms;
+namespace Tests\dsAndAlgorithms;
 
-use src\dsAndAlgorithms\ArrayRotation;
+use dsAndAlgorithms\ArrayRotation;
 use PHPUnit\Framework\TestCase;
 
 class ArrayRotationTest extends TestCase

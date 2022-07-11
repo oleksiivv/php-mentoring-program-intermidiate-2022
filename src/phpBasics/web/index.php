@@ -1,8 +1,6 @@
 <?php
 
-require_once '../TextStatisticsController.php';
-
-use src\phpBasics\TextStatisticsController;
+use phpBasics\TextStatisticsController;
 
 if (isset($_POST['submit'])) {
     $textStatisticsController = new TextStatisticsController();

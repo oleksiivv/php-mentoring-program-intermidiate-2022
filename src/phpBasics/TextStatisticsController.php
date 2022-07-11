@@ -1,6 +1,6 @@
 <?php
 
-namespace src\phpBasics;
+namespace phpBasics;
 
 class TextStatisticsController
 {

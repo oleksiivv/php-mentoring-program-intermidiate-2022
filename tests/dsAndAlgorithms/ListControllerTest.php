@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\dsAndAlgorithms;
+namespace Tests\dsAndAlgorithms;
 
 use PHPUnit\Framework\TestCase;
-use src\dsAndAlgorithms\ListController;
+use dsAndAlgorithms\ListController;
 
 class ListControllerTest extends TestCase
 {

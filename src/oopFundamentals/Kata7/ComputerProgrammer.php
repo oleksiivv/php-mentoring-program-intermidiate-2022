@@ -1,6 +1,6 @@
 <?php
 
-namespace src\oopFundamentals\Kata7;
+namespace oopFundamentals\Kata7;
 
 class ComputerProgrammer extends Person
 {

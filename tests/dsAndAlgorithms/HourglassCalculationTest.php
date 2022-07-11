@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\dsAndAlgorithms;
+namespace Tests\dsAndAlgorithms;
 
 use PHPUnit\Framework\TestCase;
-use src\dsAndAlgorithms\HourglassCalculation;
+use dsAndAlgorithms\HourglassCalculation;
 
 class HourglassCalculationTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace src\dsAndAlgorithms;
+namespace dsAndAlgorithms;
 
 use SplDoublyLinkedList;
 

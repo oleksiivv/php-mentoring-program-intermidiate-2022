@@ -1,6 +1,6 @@
 <?php
 
-namespace src\oopFundamentals\Kata6;
+namespace oopFundamentals\Kata6;
 
 class Person
 {

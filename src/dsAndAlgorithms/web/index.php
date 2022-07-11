@@ -1,12 +1,8 @@
 <?php
 
-require_once '../ArrayRotation.php';
-require_once '../ListController.php';
-require_once '../HourglassCalculation.php';
-
-use src\dsAndAlgorithms\ArrayRotation;
-use src\dsAndAlgorithms\HourglassCalculation;
-use src\dsAndAlgorithms\ListController;
+use dsAndAlgorithms\ArrayRotation;
+use dsAndAlgorithms\HourglassCalculation;
+use dsAndAlgorithms\ListController;
 
 if (isset($_GET['perform_rotate'])) {
     $rotatedArray = (new ArrayRotation())->perform(

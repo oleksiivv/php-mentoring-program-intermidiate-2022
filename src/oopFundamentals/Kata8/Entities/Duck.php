@@ -1,8 +1,8 @@
 <?php
 
-namespace src\oopFundamentals\Kata8\Entities;
+namespace oopFundamentals\Kata8\Entities;
 
-use src\oopFundamentals\Kata8\CanSwim;
+use oopFundamentals\Kata8\CanSwim;
 
 class Duck extends Bird implements CanSwim
 {

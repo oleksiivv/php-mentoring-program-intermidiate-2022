@@ -1,8 +1,8 @@
 <?php
 
-namespace src\oopFundamentals\Kata7;
+namespace oopFundamentals\Kata7;
 
-use src\oopFundamentals\Kata6\Person as BasePerson;
+use oopFundamentals\Kata6\Person as BasePerson;
 
 class Person extends BasePerson
 {
