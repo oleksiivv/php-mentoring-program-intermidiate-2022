@@ -4,11 +4,12 @@ namespace db\Repositories;
 
 use db\Entities\Article;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\QueryBuilder;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class ArticleRepository
 {
+    const PAGINATION_ITEMS_PER_PAGE = 5;
+    const PAGINATION_NAVBAR_OFFSET_FROM_CURRENT_PAGE = 2;
+
     public function __construct(private EntityManagerInterface $entityManager)
     {
     }

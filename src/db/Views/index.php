@@ -41,9 +41,9 @@ if (isset($_GET['search'])) {
 
 $articles = $articleRepository->index(
         isset($_GET['page'])
-            ? ($_GET['page'] - 1) * HttpService::PAGINATION_ITEMS_PER_PAGE
+            ? ($_GET['page'] - 1) * ArticleRepository::PAGINATION_ITEMS_PER_PAGE
             : 0,
-        HttpService::PAGINATION_ITEMS_PER_PAGE,
+        ArticleRepository::PAGINATION_ITEMS_PER_PAGE,
         $_GET['order'] ?? [],
         $searchCriteria,
 );
@@ -107,8 +107,8 @@ $totalNumberOfArticles = $articleRepository->getNumberOfRecords($searchCriteria)
         <tbody>
 
         <?php
-        $last = (HttpService::PAGINATION_ITEMS_PER_PAGE < count($articles))
-            ? HttpService::PAGINATION_ITEMS_PER_PAGE
+        $last = (ArticleRepository::PAGINATION_ITEMS_PER_PAGE < count($articles))
+            ? ArticleRepository::PAGINATION_ITEMS_PER_PAGE
             : count($articles);
 
         for ($i = 0; $i < $last; $i++):
@@ -133,15 +133,15 @@ $totalNumberOfArticles = $articleRepository->getNumberOfRecords($searchCriteria)
         <ul class="pagination justify-content-center">
 
             <?php
-            $countOfPages = ceil($totalNumberOfArticles / HttpService::PAGINATION_ITEMS_PER_PAGE);
+            $countOfPages = ceil($totalNumberOfArticles / ArticleRepository::PAGINATION_ITEMS_PER_PAGE);
 
             $firstShowedPage = $_GET['page'] ?? 1;
-            $firstShowedPage = ($firstShowedPage - HttpService::PAGINATION_NAVBAR_OFFSET_FROM_CURRENT_PAGE > 0)
-                ? $firstShowedPage - HttpService::PAGINATION_NAVBAR_OFFSET_FROM_CURRENT_PAGE
+            $firstShowedPage = ($firstShowedPage - ArticleRepository::PAGINATION_NAVBAR_OFFSET_FROM_CURRENT_PAGE > 0)
+                ? $firstShowedPage - ArticleRepository::PAGINATION_NAVBAR_OFFSET_FROM_CURRENT_PAGE
                 : 1;
 
-            $lastShowedPage = ($firstShowedPage + HttpService::PAGINATION_ITEMS_PER_PAGE < $countOfPages)
-                ? $firstShowedPage + HttpService::PAGINATION_ITEMS_PER_PAGE
+            $lastShowedPage = ($firstShowedPage + ArticleRepository::PAGINATION_ITEMS_PER_PAGE < $countOfPages)
+                ? $firstShowedPage + ArticleRepository::PAGINATION_ITEMS_PER_PAGE
                 : $countOfPages + 1;
 
             $currentPage = $_GET['page'] ?? 1;

@@ -4,9 +4,6 @@ namespace db\Services;
 
 class HttpService
 {
-    const PAGINATION_ITEMS_PER_PAGE = 5;
-    const PAGINATION_NAVBAR_OFFSET_FROM_CURRENT_PAGE = 2;
-
     public function addParamToURL(string $param, $value): string
     {
         $query = $_GET;
