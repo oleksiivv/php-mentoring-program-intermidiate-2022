@@ -1,6 +1,6 @@
 <?php
 
-namespace src\oopFundamentals\Kata8;
+namespace oopFundamentals\Kata8;
 
 interface CanFly
 {

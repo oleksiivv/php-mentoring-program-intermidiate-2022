@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\oopFundamentals\Kata9;
+namespace Tests\oopFundamentals\Kata9;
 
 use PHPUnit\Framework\TestCase;
-use src\oopFundamentals\Kata9\ComputerProgrammer;
-use src\oopFundamentals\Kata9\Person;
+use oopFundamentals\Kata9\ComputerProgrammer;
+use oopFundamentals\Kata9\Person;
 
 class ComputerProgrammerTest extends TestCase
 {

@@ -1,2 +1,4 @@
 /vendor
 /.idea
+db-test.sqlite
+.phpunit.result.cache

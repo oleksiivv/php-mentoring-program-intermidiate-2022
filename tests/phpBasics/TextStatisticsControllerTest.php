@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\phpBasics;
+namespace Tests\phpBasics;
 
 use PHPUnit\Framework\TestCase;
-use src\phpBasics\TextStatisticsController;
+use phpBasics\TextStatisticsController;
 
 class TextStatisticsControllerTest extends TestCase
 {

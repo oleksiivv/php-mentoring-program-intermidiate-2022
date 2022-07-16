@@ -1,6 +1,6 @@
 <?php
 
-namespace src\oopFundamentals\Kata9;
+namespace oopFundamentals\Kata9;
 
 abstract class Person
 {

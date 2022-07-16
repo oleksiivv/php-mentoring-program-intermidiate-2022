@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\oopFundamentals\Kata6;
+namespace Tests\oopFundamentals\Kata6;
 
 use PHPUnit\Framework\TestCase;
-use src\oopFundamentals\Kata6\Person;
+use oopFundamentals\Kata6\Person;
 
 class PersonTest extends TestCase
 {

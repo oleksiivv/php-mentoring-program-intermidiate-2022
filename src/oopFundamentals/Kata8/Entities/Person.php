@@ -1,10 +1,10 @@
 <?php
 
-namespace src\oopFundamentals\Kata8\Entities;
+namespace oopFundamentals\Kata8\Entities;
 
-use src\oopFundamentals\Kata6\Person as BasePerson;
-use src\oopFundamentals\Kata8\CanGreet;
-use src\oopFundamentals\Kata8\CanIntroduce;
+use oopFundamentals\Kata6\Person as BasePerson;
+use oopFundamentals\Kata8\CanGreet;
+use oopFundamentals\Kata8\CanIntroduce;
 
 class Person extends BasePerson implements CanIntroduce, CanGreet
 {

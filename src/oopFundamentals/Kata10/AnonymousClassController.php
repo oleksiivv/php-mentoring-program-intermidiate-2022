@@ -1,6 +1,6 @@
 <?php
 
-namespace src\oopFundamentals\Kata10;
+namespace oopFundamentals\Kata10;
 
 class AnonymousClassController
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace src\oopFundamentals\Kata8\Entities;
+namespace oopFundamentals\Kata8\Entities;
 
-use src\oopFundamentals\Kata8\CanFly;
+use oopFundamentals\Kata8\CanFly;
 
 class Bird implements CanFly
 {

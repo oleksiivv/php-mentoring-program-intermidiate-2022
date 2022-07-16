@@ -1,6 +1,6 @@
 <?php
 
-use src\oopFundamentals\Kata10\AnonymousClassController;
+use oopFundamentals\Kata10\AnonymousClassController;
 
 $author = new class(
     AnonymousClassController::AUTHOR_NAME,

@@ -1,19 +1,19 @@
 <?php
 
-namespace tests\oopFundamentals\Kata8;
+namespace Tests\oopFundamentals\Kata8;
 
 use PHPUnit\Framework\TestCase;
-use src\oopFundamentals\Kata8\CanClimb;
-use src\oopFundamentals\Kata8\CanFly;
-use src\oopFundamentals\Kata8\CanGreet;
-use src\oopFundamentals\Kata8\CanIntroduce;
-use src\oopFundamentals\Kata8\CanSpeak;
-use src\oopFundamentals\Kata8\CanSwim;
-use src\oopFundamentals\Kata8\Entities\Bird;
-use src\oopFundamentals\Kata8\Entities\Cat;
-use src\oopFundamentals\Kata8\Entities\Dog;
-use src\oopFundamentals\Kata8\Entities\Duck;
-use src\oopFundamentals\Kata8\Entities\Person;
+use oopFundamentals\Kata8\CanClimb;
+use oopFundamentals\Kata8\CanFly;
+use oopFundamentals\Kata8\CanGreet;
+use oopFundamentals\Kata8\CanIntroduce;
+use oopFundamentals\Kata8\CanSpeak;
+use oopFundamentals\Kata8\CanSwim;
+use oopFundamentals\Kata8\Entities\Bird;
+use oopFundamentals\Kata8\Entities\Cat;
+use oopFundamentals\Kata8\Entities\Dog;
+use oopFundamentals\Kata8\Entities\Duck;
+use oopFundamentals\Kata8\Entities\Person;
 
 class HierarchyTest extends TestCase
 {

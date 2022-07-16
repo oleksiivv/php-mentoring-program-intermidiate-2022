@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\oopFundamentals\Kata10;
+namespace Tests\oopFundamentals\Kata10;
 
 use PHPUnit\Framework\TestCase;
-use src\oopFundamentals\Kata10\AnonymousClassController;
+use oopFundamentals\Kata10\AnonymousClassController;
 
 class AnonymousClassControllerTest extends TestCase
 {
