@@ -1,6 +1,6 @@
 ## SOLID principles, used in hometask №5:
-* Single-responsibility principle - models, repositories, services, views and actions
-* Open-closed principle - repositories hierarchy and RepositoriesManagementService
+* Single-responsibility principle - entities, repositories, services, views and actions
+* Open-closed principle - repositories hierarchy, entities hierarchy and RepositoriesManagementService
 * Liskov Substitution Principle
   * BaseEntity used as return type in Repositories
   * ReadableObjectRepositoryInterface as return type in RepositoriesManagementService::getRepository
