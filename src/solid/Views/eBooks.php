@@ -50,7 +50,7 @@ $totalNumberOfEntities = $eBooksRepository->getNumberOfRecords($searchCriteria);
     <div class="row">
         <div class="col-sm-3">
             <h4>Create new e-book</h4>
-            <form action="actions/createOrUpdate.php" method="POST">
+            <form action="actions/createItem.php" method="POST">
                 <input name="entity" value="<?= EBook::class ?>" hidden/>
                 <input name="name" type="text" placeholder="Name: " class="form-control"/>
                 <input name="description" type="text" placeholder="Description: " class="form-control"/>
@@ -64,8 +64,8 @@ $totalNumberOfEntities = $eBooksRepository->getNumberOfRecords($searchCriteria);
             if (isset($_GET['update'])) :
                 ?>
                 <div class="col-sm-3">
-                    <h4>Update book #<?= $_GET['update']['id'] ?></h4>
-                    <form action="actions/createOrUpdate.php" method="POST">
+                    <h4>Update e-book #<?= $_GET['update']['id'] ?></h4>
+                    <form action="actions/updateItem.php" method="POST">
                         <input name="update-entity-id" value="<?= $_GET['update']['id'] ?>" class="form-control" readonly/>
                         
                         <input name="entity" value="<?= EBook::class ?>" hidden/>
