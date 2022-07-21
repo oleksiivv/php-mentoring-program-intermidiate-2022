@@ -1,3 +1,11 @@
+## SOLID principles, used in hometask №5:
+* Single-responsibility principle - entities, repositories, services, views and actions
+* Open-closed principle - repositories hierarchy, entities hierarchy and RepositoriesManagementService
+* Liskov Substitution Principle
+  * BaseEntity used as return type in Repositories
+  * ReadableObjectRepositoryInterface as return type in RepositoriesManagementService::getRepository
+* Interface segregation - each entity implement only those interface, which are required
+* Dependency inversion - repositories depend on abstraction of entities, not directly on them
 ### For running tests: `.\vendor\bin\phpunit tests`
 
 ### For running seeders(task 4 - db basics): `php src/db/Seeders/ArticleSeeder.php n` *(n - number of records to be inserted)*
