@@ -20,7 +20,7 @@ class HttpServiceTest extends TestCase
 
     public function testAddParamToUrlWorksCorrectly()
     {
-        $request = new Request([], [json_encode(['page' => '1'])], [], [], [], [], []);
+        $request = new Request(request: [json_encode(['page' => '1'])]);
 
         $newQueryParam = 'test_param';
         $newQueryParamValue = 'test_value';
@@ -33,7 +33,7 @@ class HttpServiceTest extends TestCase
 
     public function testAddOrderParamToUrlWorksCorrectly()
     {
-        $request = new Request([], [json_encode(['page' => '1'])], [], [], [], [], []);
+        $request = new Request(request: [json_encode(['page' => '1'])]);
 
         $order = 'title';
 
