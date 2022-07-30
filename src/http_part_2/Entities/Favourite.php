@@ -3,9 +3,6 @@
 namespace http_part_2\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\JoinColumn;
-use http_part_2\Entities\Breed;
 
 /**
  * @ORM\Entity
@@ -80,13 +77,13 @@ class Favourite
 
     public static function fromArray(array $data): self
     {
-        $favouriteBreed = new self;
+        $favourite = new self;
 
-        $favouriteBreed->setUserApiKey($data['sub_id']);
-        $favouriteBreed->setImageId($data['image_id']);
-        $favouriteBreed->setId($data['id']);
+        $favourite->setUserApiKey($data['sub_id']);
+        $favourite->setImageId($data['image_id']);
+        $favourite->setId($data['id']);
 
-        return $favouriteBreed;
+        return $favourite;
     }
 
     public function toArray(): array
