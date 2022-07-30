@@ -9,9 +9,9 @@ use http_part_2\Entities\Breed;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="favourite_breeds")
+ * @ORM\Table(name="favourites")
  */
-class FavouriteBreed
+class Favourite
 {
     /**
      * @ORM\Id

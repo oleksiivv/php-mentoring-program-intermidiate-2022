@@ -1,8 +1,6 @@
 /vendor
 /.idea
-db-test.sqlite
-http_part_2-test.sqlite
-solid-db-test.sqlite
+*.sqlite
 .phpunit.result.cache
 composer.phar
 config/cache

@@ -2,7 +2,7 @@
 
 namespace http_part_2\Repositories;
 
-use http_part_2\Entities\FavouriteBreed;
+use http_part_2\Entities\Favourite;
 use http_part_2\Services\HttpService;
 
 class FavouritesHttpRepository
@@ -23,15 +23,15 @@ class FavouritesHttpRepository
         ]))->getBody());
 
         return array_map(function ($item) {
-           return FavouriteBreed::fromArray(get_object_vars($item));
+           return Favourite::fromArray(get_object_vars($item));
         }, $items);
     }
 
-    public function get(string $id): FavouriteBreed
+    public function get(string $id): Favourite
     {
         $response = json_decode($this->httpService->get("/favourites/$id")->getBody());
 
-        return FavouriteBreed::fromArray(get_object_vars($response));
+        return Favourite::fromArray(get_object_vars($response));
     }
 
     public function create(array $data): void

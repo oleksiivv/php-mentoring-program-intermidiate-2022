@@ -4,7 +4,7 @@ namespace http_part_2\Controllers;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use http_part_2\Entities\FavouriteBreed;
+use http_part_2\Entities\Favourite;
 use http_part_2\Repositories\DB\SettingsRepository;
 use http_part_2\Repositories\FavouritesHttpRepository;
 use http_part_2\Services\HttpService;
@@ -32,7 +32,7 @@ class FavouritesController extends Controller
         return $this->favouriteRepository->getAll(HttpService::X_API_KEY);
     }
 
-    public function getFavourite(string $id): FavouriteBreed
+    public function getFavourite(string $id): Favourite
     {
         $this->throwExceptionIfOfflineMode();
 

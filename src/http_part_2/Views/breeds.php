@@ -4,7 +4,7 @@ require_once __DIR__ . './../../../config/bootstrap.php';
 
 use http_part_2\Controllers\BreedController;
 use http_part_2\Controllers\FavouritesController;
-use http_part_2\Entities\FavouriteBreed;
+use http_part_2\Entities\Favourite;
 use Symfony\Component\HttpFoundation\Request;
 
 $request = Request::createFromGlobals();
@@ -14,7 +14,7 @@ $breedController = new BreedController($entityManager);
 $favouritesController = new FavouritesController($entityManager);
 
 try {
-    $favouriteImages = array_map(function (FavouriteBreed $item) {
+    $favouriteImages = array_map(function (Favourite $item) {
         return $item->getImageId();
     }, $favouritesController->getAllFavourites());
 } catch (Exception $exception) {

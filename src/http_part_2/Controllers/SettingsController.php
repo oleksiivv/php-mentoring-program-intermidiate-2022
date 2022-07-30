@@ -3,7 +3,7 @@
 namespace http_part_2\Controllers;
 
 use Doctrine\ORM\EntityManagerInterface;
-use http_part_2\Entities\FavouriteBreed;
+use http_part_2\Entities\Favourite;
 use http_part_2\Repositories\DB\SettingsRepository;
 use http_part_2\Repositories\FavouritesHttpRepository;
 use http_part_2\Services\BreedRepositoryFactory;
