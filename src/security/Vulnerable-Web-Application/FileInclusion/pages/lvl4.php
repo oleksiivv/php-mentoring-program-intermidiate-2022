@@ -24,7 +24,8 @@
         if (isset( $_GET[ 'file' ])) 
         {
           $secure4 = $_GET[ 'file' ];
-         
+
+          //so only allowed filess will be included
             if ($secure4!="1.php" && $secure4!="2.php") 
             {
               $secure4=substr($secure4, 0,-4);

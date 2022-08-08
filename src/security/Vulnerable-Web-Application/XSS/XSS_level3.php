@@ -18,8 +18,14 @@
 	</div>
 <?php 
 if (isset($_GET["username"])) {
-	$user = preg_replace("/<(.*)[S,s](.*)[C,c](.*)[R,r](.*)[I,i](.*)[P,p](.*)[T,t]>/i", "", $_GET["username"]);
-	echo "Your name is "."$user";
+    //old:
+	//$user = preg_replace("/<(.*)[S,s](.*)[C,c](.*)[R,r](.*)[I,i](.*)[P,p](.*)[T,t]>/i", "", $_GET["username"]);
+
+    //new:
+    //strip_tags is better when input cannot contain tags and '<' or '>'
+    $user = htmlspecialchars($_GET["username"], ENT_QUOTES, 'UTF-8');
+
+    echo "Your name is "."$user";
 }
  ?>
 

@@ -30,9 +30,10 @@
           $secure3=str_replace (array ( ":" , "/" , "..\\", "../" ), "" ,  $secure3);
 
           if (isset($secure3)) 
-            {        
+          {
+              //so attacker won't be able to control the file extension
               include($secure3.".php");
-            }
+          }
         }
       ?>
    </body>

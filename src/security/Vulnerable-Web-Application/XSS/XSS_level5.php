@@ -19,7 +19,8 @@
 
 <?php 
 if (isset($_GET["username"])) {
-    $user = str_replace("<", "", $_GET["username"]);
+    //strip_tags is better when input cannot contain tags and '<' or '>'
+    $user = strip_tags($_GET["username"]);
     echo "Your name is "."$user";
 }
  ?>

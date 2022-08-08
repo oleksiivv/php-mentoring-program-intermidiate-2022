@@ -18,8 +18,14 @@
 	</div>
 <?php
 if (isset($_GET["username"])) {
- 	$user = str_replace("<script>", "",$_GET["username"]);
-	echo "Your name is "."$user";
+    //Won't be working for something like <script src="http://example.com/runme.js"></script>
+ 	//$user = str_replace("<script>", "",$_GET["username"]);
+
+    //so better way is to use php sanitizing functions:
+    $user = htmlspecialchars($_GET["username"], ENT_QUOTES, 'UTF-8');
+    //strip_tags is better when input cannot contain tags and '<' or '>'
+
+	echo "Your name is $user";
 }
 ?>
 

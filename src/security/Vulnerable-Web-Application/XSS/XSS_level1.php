@@ -18,7 +18,8 @@
 	</div>
 <?php
 if(isset($_GET["username"]))
-
-	echo("Your name is ".$_GET["username"])?>
+    //sanitize input
+    //strip_tags is better when input cannot contain tags and '<' or '>'
+	echo("Your name is ".htmlspecialchars($_GET["username"], ENT_QUOTES, 'UTF-8'))?>
 </body>
 </html>

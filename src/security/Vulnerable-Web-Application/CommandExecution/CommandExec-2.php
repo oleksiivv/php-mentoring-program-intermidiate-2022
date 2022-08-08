@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+$_SESSION['token'] = $_SESSION['token'] ?? bin2hex(random_bytes(35));
+?>
 <html>
   <head>
     <link rel="shortcut icon" href="../Resources/hmbct.png" />
@@ -10,20 +15,30 @@
     </div>
     <div align="center" style="background-color:#c9c9c9;padding:20px;">
       <h1 align="center">I think there is a vuln here!</h1>
-    <form align="center" action="CommandExec-2.php" method="$_GET">
+    <form align="center" action="" method="POST">
       <label align="center">Name:</label>
-      <input align="center" type="text" name="typeBox" value=""><br>
+        <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?? '' ?>">
+        <input align="center" type="text" name="typeBox" value=""><br>
       <input align="center" type="submit" value="Submit">
     </form>
   </div>
   <div style="background-color:#ecf2d0;padding:20px;border-radius:0px 0px 20px 20px" align="center">
     <?php
-    if(isset($_GET["typeBox"])){
+    //Anti-CSRF implementation reduces the vulnerability of the website
+    $token = filter_input(INPUT_POST, 'token', FILTER_SANITIZE_STRING);
+
+    if (!$token || $token !== $_SESSION['token']) {
+        // return 405 http status code
+        header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+        exit;
+    }
+
+    if (isset($_GET["typeBox"])) {
       $target =$_GET["typeBox"];
       $substitutions = array('&&' => '',';'  => '','/' => '','\\' => '' );
       $target = str_replace(array_keys($substitutions),$substitutions,$target);
       echo shell_exec($target);
-      if($_GET["typeBox"] == "Trochilidae")
+      if ($_GET["typeBox"] == "Trochilidae")
         echo "Welldone! You did great job.";
     }
 

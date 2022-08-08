@@ -22,7 +22,8 @@
         
         if (isset( $_GET[ 'file' ]))        
         {
-          @include($_GET[ 'file' ]);
+          //so attacker won't be able to control the file extension
+          @include($_GET[ 'file' ] . '.php');
           echo"<div align='center'><b><h5>".$_GET[ 'file' ]."</h5></b></div> ";       
         }
       ?>
