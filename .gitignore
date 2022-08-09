@@ -1,4 +1,6 @@
 /vendor
 /.idea
-db-test.sqlite
+*.sqlite
 .phpunit.result.cache
+composer.phar
+config/cache
