@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
-class GithubController extends Controller
+class AuthorizationController extends Controller
 {
-    public function gitRedirect()
+    public function githubRedirect()
     {
         return Socialite::driver('github')->redirect();
     }
 
-    public function gitCallback()
+    public function githubCallback()
     {
         try {
             $user = Socialite::driver('github')->user();

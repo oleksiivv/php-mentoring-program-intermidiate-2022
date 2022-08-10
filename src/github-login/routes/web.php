@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GitHubController;
+use App\Http\Controllers\AuthorizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('auth/github', [GitHubController::class, 'gitRedirect']);
-Route::get('auth/github/callback', [GitHubController::class, 'gitCallback']);
+Route::get('auth/github', [AuthorizationController::class, 'githubRedirect']);
+Route::get('auth/github/callback', [AuthorizationController::class, 'githubCallback']);
 
-Route::get('/dashboard', [GitHubController::class, 'dashboard'])->middleware('auth');
-Route::get('/logout', [GitHubController::class, 'logout'])->middleware('auth');
+Route::get('/dashboard', [AuthorizationController::class, 'dashboard'])->middleware('auth');
+Route::get('/logout', [AuthorizationController::class, 'logout'])->middleware('auth');
 
