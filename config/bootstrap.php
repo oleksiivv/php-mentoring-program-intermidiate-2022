@@ -11,14 +11,14 @@ $cache = null;
 $useSimpleAnnotationReader = false;
 
 $config = Setup::createAnnotationMetadataConfiguration(
-    [__DIR__ . './../src/http_part_2/Entities'], $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader
+    [__DIR__ . './../src/Patterns/DecoratorPattern/Entities'], $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader
 );
 
 $connection = [
     'driver' => 'pdo_mysql',
     'user' => 'root',
     'host' => 'localhost',
-    'dbname' => 'cats',
+    'dbname' => 'persons',
 ];
 
 $entityManager = EntityManager::create($connection, $config);
