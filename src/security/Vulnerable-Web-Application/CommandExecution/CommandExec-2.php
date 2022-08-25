@@ -38,8 +38,9 @@ $_SESSION['token'] = $_SESSION['token'] ?? bin2hex(random_bytes(35));
       $substitutions = array('&&' => '',';'  => '','/' => '','\\' => '' );
       $target = str_replace(array_keys($substitutions),$substitutions,$target);
       echo shell_exec($target);
-      if ($_GET["typeBox"] == "Trochilidae")
-        echo "Welldone! You did great job.";
+      if ($_GET["typeBox"] == "Trochilidae") {
+          echo "Welldone! You did great job.";
+      }
     }
 
     ?>
