@@ -30,11 +30,11 @@ class TextStatisticsRepository
     {
         return $this->entityManager->getRepository(StatisticRecord::class)
             ->createQueryBuilder('s')
-            ->where('s.timestamp BETWEEN :from AND :to')
-            ->where('sessionId = :sessionId')
+            ->where('s.sessionId = :sessionId')
+            ->andWhere('s.timestamp BETWEEN :from AND :to')
+            ->setParameter('sessionId', $sessionId)
             ->setParameter('from', $from)
             ->setParameter('to', $to)
-            ->setParameter('sessionId', $sessionId)
             ->getQuery()
             ->getResult();
     }

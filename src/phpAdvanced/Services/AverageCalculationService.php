@@ -27,7 +27,7 @@ class AverageCalculationService
         $averageNumberOfPalindromeWords = array_column($data, TextStatisticsController::NUMBER_OF_PALINDROME_WORDS_KEY);
 
         return [
-            'Number of submitted texts' => count($data),
+            'Number of submitted texts' => $numberOfTexts,
             TextStatisticsController::FREQUENCY_OF_CHARACTERS_KEY => $averageCharactersFrequency,
             TextStatisticsController::EXECUTION_TIME_KEY => array_sum($executionTimes) / count($executionTimes),
             TextStatisticsController::AVERAGE_NUMBER_OF_WORDS_IN_SENTENCE_KEY => array_sum($averageNumberOfWordsInSentence) / count($averageNumberOfWordsInSentence),
