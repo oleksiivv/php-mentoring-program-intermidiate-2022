@@ -1,10 +1,10 @@
 <?php
 
-namespace phpAdvanced\Controllers;
+namespace phpAdvanced\Services;
 
 use phpAdvanced\Repositories\TextStatisticsRepository;
 
-class TextStatisticsController
+class TextStatisticsService
 {
     public const NUMBER_OF_CHARACTERS_KEY = 'number of characters';
     public const NUMBER_OF_WORDS_KEY = 'number of words';

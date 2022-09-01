@@ -4,7 +4,7 @@ session_start();
 require_once '../../../vendor/autoload.php';
 require_once __DIR__ . './../../../config/bootstrap.php';
 
-use phpAdvanced\Controllers\TextStatisticsController;
+use phpAdvanced\Services\TextStatisticsService;
 use phpAdvanced\Repositories\TextStatisticsRepository;
 
 if (isset($_POST['submit'])) {
@@ -18,12 +18,12 @@ if (isset($_POST['submit'])) {
         $text = htmlspecialchars(file_get_contents($_POST['url']));
     }
 
-    $textStatisticsController = new TextStatisticsController();
+    $textStatisticsService = new TextStatisticsService();
 
-    $textStatisticsController->setTextStatisticsRepository(new TextStatisticsRepository($entityManager));
-    $textStatisticsController->setText($text);
+    $textStatisticsService->setTextStatisticsRepository(new TextStatisticsRepository($entityManager));
+    $textStatisticsService->setText($text);
 
-    $result = $textStatisticsController->processText(session_id());
+    $result = $textStatisticsService->processText(session_id());
 
     $_SESSION['text_statistic']['results'][$text] = json_encode($result);
 
