@@ -2,7 +2,7 @@
 
 namespace phpBasics;
 
-class TextStatisticsController
+class TextStatisticsService
 {
     private String $text;
 

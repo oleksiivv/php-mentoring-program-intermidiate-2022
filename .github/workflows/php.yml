@@ -34,11 +34,9 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
         
-    - name: Execute tests for three first home tasks
+    - name: Execute tests for code quality task
       run: |
-        vendor/bin/phpunit tests/dsAndAlgorithms
-        vendor/bin/phpunit tests/oopFundamentals
-        vendor/bin/phpunit tests/phpBasics
+        vendor/bin/phpunit tests/phpAdvanced
 
   sonarcloud:
     name: SonarCloud

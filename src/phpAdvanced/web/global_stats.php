@@ -20,7 +20,7 @@ $statsFromRecords = array_map(function (StatisticRecord $record) {
     return $record->getStatistic();
 }, $records);
 
-$averageData = AverageCalculationService::perform($statsFromRecords);
+$averageData = (new AverageCalculationService())->perform($statsFromRecords);
 
 echo '<table>';
 foreach ($averageData as $key=>$value) {
