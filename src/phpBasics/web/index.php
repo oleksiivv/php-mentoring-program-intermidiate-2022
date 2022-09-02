@@ -1,15 +1,15 @@
 <?php
 
-use phpBasics\TextStatisticsController;
+use phpBasics\TextStatisticsService;
 
 if (isset($_POST['submit'])) {
-    $textStatisticsController = new TextStatisticsController();
+    $textStatisticsController = new TextStatisticsService();
     $textStatisticsController->setText($_POST['text']);
 
     $result = $textStatisticsController->processText();
 
     echo '<table>';
-    foreach ($result as $key=>$value) {
+    foreach ($result as $key => $value) {
         echo '<tr>';
         echo '<td>' . $key . '</td>';
         echo '<td>' . (is_array($value) ? json_encode($value, JSON_UNESCAPED_UNICODE) : $value) . '</td>';

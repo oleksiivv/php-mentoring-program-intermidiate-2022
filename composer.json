@@ -20,5 +20,11 @@
     "symfony/http-foundation": "^6.1",
     "kevinrob/guzzle-cache-middleware": "^4.0",
     "ext-simplexml": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*",
+    "phpmd/phpmd" : "@stable",
+    "phpstan/phpstan": "^1.8",
+    "phpmetrics/phpmetrics": "^2.8"
   }
 }

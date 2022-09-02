@@ -13,7 +13,7 @@ header('Content-Transfer-Encoding: binary');
 
 $data = json_decode($_POST['data'], true);
 
-foreach ($data as $key=>$value) {
+foreach ($data as $key => $value) {
     $data[$key] = is_array($value)
         ? json_encode($value)
         : $value;

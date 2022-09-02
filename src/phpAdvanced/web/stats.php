@@ -11,9 +11,9 @@ foreach ($_SESSION['text_statistic']['results'] as $record) {
 
 $count = min($_GET['count'] ?? 10, count($results));
 
-for ($i=0; $i < $count; $i++) {
+for ($i = 0; $i < $count; $i++) {
     echo '<table>';
-    foreach ($results[$i] as $key=>$value) {
+    foreach ($results[$i] as $key => $value) {
         echo '<tr>';
         echo '<td>' . $key . '</td>';
         echo '<td>' . (is_array($value) ? json_encode($value, JSON_UNESCAPED_UNICODE) : $value) . '</td>';

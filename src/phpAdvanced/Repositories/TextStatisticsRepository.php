@@ -19,6 +19,10 @@ class TextStatisticsRepository
         ]);
     }
 
+    /**
+     * @param string $sessionId
+     * @return array<StatisticRecord>
+     */
     public function getAll(string $sessionId): array
     {
         return $this->entityManager->getRepository(StatisticRecord::class)->findBy([
@@ -26,6 +30,12 @@ class TextStatisticsRepository
         ]);
     }
 
+    /**
+     * @param string $sessionId
+     * @param string $from
+     * @param string $to
+     * @return array<StatisticRecord>
+     */
     public function getAllInDateRange(string $sessionId, string $from, string $to): array
     {
         return $this->entityManager->getRepository(StatisticRecord::class)

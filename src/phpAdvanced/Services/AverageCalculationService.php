@@ -8,6 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AverageCalculationService
 {
+    /**
+     * @param array<array<string, mixed>> $data
+     * @return array<string, mixed>
+     */
     public static function perform(array $data): array
     {
         $numberOfTexts = count($data);
@@ -46,13 +50,17 @@ class AverageCalculationService
         ];
     }
 
+    /**
+     * @param array<array<string, mixed>> $data
+     * @return array<string, double>
+     */
     private static function getAverageCharactersFrequency(array $data): array
     {
         $charactersFrequency = array_column($data, TextStatisticsService::FREQUENCY_OF_CHARACTERS_KEY);
         $averageCharactersFrequency = [];
 
         foreach ($charactersFrequency as $singleTextCharactersFrequency) {
-            foreach ($singleTextCharactersFrequency as $key=>$value) {
+            foreach ($singleTextCharactersFrequency as $key => $value) {
                 if (isset($averageCharactersFrequency[$key])) {
                     $averageCharactersFrequency[$key] += $value;
                 } else {

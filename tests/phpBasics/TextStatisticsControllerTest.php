@@ -3,17 +3,17 @@
 namespace Tests\phpBasics;
 
 use PHPUnit\Framework\TestCase;
-use phpBasics\TextStatisticsController;
+use phpBasics\TextStatisticsService;
 
 class TextStatisticsControllerTest extends TestCase
 {
-    protected TextStatisticsController $textStatisticsController;
+    protected TextStatisticsService $textStatisticsController;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->textStatisticsController = new TextStatisticsController();
+        $this->textStatisticsController = new TextStatisticsService();
     }
 
     public function testGetNumberOfCharactersWorksCorrectly()
