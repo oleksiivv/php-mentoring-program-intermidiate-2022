@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['text_statistic']['results'][$text] = json_encode($result);
 
     echo '<table>';
-    foreach ($result as $key=>$value) {
+    foreach ($result as $key => $value) {
         echo '<tr>';
         echo '<td>' . $key . '</td>';
         echo '<td>' . (is_array($value) ? json_encode($value, JSON_UNESCAPED_UNICODE) : $value) . '</td>';
@@ -64,8 +64,8 @@ if (isset($_POST['submit'])) {
 </form>
 
 <?php
-    if (isset($result)):
-        ?>
+if (isset($result)) :
+    ?>
         <form action="actions/exportAsXLS.php" method="POST">
             <input type="hidden" name="data" value="<?=htmlspecialchars(json_encode($result))?>">
             <input type="submit" name="export" value="Export as XLS"/>
@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
             <input type="hidden" name="data" value="<?=htmlspecialchars(json_encode($result))?>">
             <input type="submit" name="export" value="Export as HTML"/>
         </form>
-<?php endif; ?>
+    <?php endif; ?>
 
 </body>
 </html>

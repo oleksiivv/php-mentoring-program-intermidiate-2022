@@ -24,7 +24,7 @@ class TextStatisticsService
     public const IS_PALINDROME_KEY = 'is palindrome';
     public const EXECUTION_TIME_KEY = 'execution time';
 
-    private String $text;
+    private string $text;
 
     private TextStatisticsRepository $textStatisticsRepository;
 
@@ -144,7 +144,7 @@ class TextStatisticsService
         if ($wordsCount > 0) {
             return array_reduce($wordsLength, function ($sum, $item) {
                     return $sum += $item;
-                }) / $wordsCount;
+            }) / $wordsCount;
         }
 
         return null;
@@ -256,8 +256,7 @@ class TextStatisticsService
         $temp = '';
         $out = '';
         $i = 0;
-        while ($i < strlen($this->text))
-        {
+        while ($i < strlen($this->text)) {
             $symbol = $this->text[$i];
 
             if (in_array($symbol, $punctuationSigns)) {
@@ -289,7 +288,9 @@ class TextStatisticsService
 
     private function getSentences(): array
     {
-        return preg_split('/(?<=[.!?])\s+/u', $this->text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+        $flags = PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY;
+
+        return preg_split('/(?<=[.!?])\s+/u', $this->text, -1, $flags);
     }
 
     private function getEachSentenceLength(): array

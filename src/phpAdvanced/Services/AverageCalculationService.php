@@ -52,7 +52,7 @@ class AverageCalculationService
         $averageCharactersFrequency = [];
 
         foreach ($charactersFrequency as $singleTextCharactersFrequency) {
-            foreach ($singleTextCharactersFrequency as $key=>$value) {
+            foreach ($singleTextCharactersFrequency as $key => $value) {
                 if (isset($averageCharactersFrequency[$key])) {
                     $averageCharactersFrequency[$key] += $value;
                 } else {

@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 use phpAdvanced\Entities\StatisticRecord;
@@ -23,7 +24,7 @@ $statsFromRecords = array_map(function (StatisticRecord $record) {
 $averageData = AverageCalculationService::perform($statsFromRecords);
 
 echo '<table>';
-foreach ($averageData as $key=>$value) {
+foreach ($averageData as $key => $value) {
     echo '<tr>';
     echo '<td>' . $key . '</td>';
     echo '<td>' . (is_array($value) ? json_encode($value, JSON_UNESCAPED_UNICODE) : $value) . '</td>';

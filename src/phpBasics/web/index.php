@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $result = $textStatisticsController->processText();
 
     echo '<table>';
-    foreach ($result as $key=>$value) {
+    foreach ($result as $key => $value) {
         echo '<tr>';
         echo '<td>' . $key . '</td>';
         echo '<td>' . (is_array($value) ? json_encode($value, JSON_UNESCAPED_UNICODE) : $value) . '</td>';

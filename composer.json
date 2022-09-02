@@ -20,5 +20,8 @@
     "symfony/http-foundation": "^6.1",
     "kevinrob/guzzle-cache-middleware": "^4.0",
     "ext-simplexml": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*"
   }
 }
