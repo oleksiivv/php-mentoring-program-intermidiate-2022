@@ -36,7 +36,9 @@ jobs:
         
     - name: Execute tests for code quality task
       run: |
-        vendor/bin/phpunit tests/phpAdvanced
+        vendor/bin/phpunit tests/dsAndAlgorithms
+        vendor/bin/phpunit tests/oopFundamentals
+        vendor/bin/phpunit tests/phpBasics
 
   sonarcloud:
     name: SonarCloud
