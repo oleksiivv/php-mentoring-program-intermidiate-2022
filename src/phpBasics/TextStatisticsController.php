@@ -127,7 +127,7 @@ class TextStatisticsController
 
     public function getLongestWords(int $limit): array
     {
-        $wordsLengths = $this->getEachWordLengthFromText($this->text);
+        $wordsLengths = $this->getEachWordLengthFromText();
 
         arsort($wordsLengths);
 
@@ -136,7 +136,7 @@ class TextStatisticsController
 
     public function getShortestWords(int $limit): array
     {
-        $wordsLengths = $this->getEachWordLengthFromText($this->text);
+        $wordsLengths = $this->getEachWordLengthFromText();
 
         asort($wordsLengths);
 
@@ -270,7 +270,7 @@ class TextStatisticsController
         return $this->getEachWordLengthFromArray($palindromes);
     }
 
-    private function getEachWordLengthFromText(string $text): array
+    private function getEachWordLengthFromText(): array
     {
         $words = $this->getWords();
 

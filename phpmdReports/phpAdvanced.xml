@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<checkstyle>
+  <file name="C:\xampp\htdocs\php-mentoring-program-intermidiate-2022\src\phpAdvanced\Entities\StatisticRecord.php">
+    <error line="18" endline="18" severity="info" message="Avoid variables with short names like $id. Configured minimum length is 3. (ShortVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#shortvariable" />
+    <error line="51" endline="51" severity="info" message="Avoid variables with short names like $id. Configured minimum length is 3. (ShortVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#shortvariable" />
+  </file>
+  <file name="C:\xampp\htdocs\php-mentoring-program-intermidiate-2022\src\phpAdvanced\Repositories\TextStatisticsRepository.php">
+    <error line="29" endline="29" severity="info" message="Avoid variables with short names like $to. Configured minimum length is 3. (ShortVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#shortvariable" />
+  </file>
+  <file name="C:\xampp\htdocs\php-mentoring-program-intermidiate-2022\src\phpAdvanced\Services\AverageCalculationService.php">
+    <error line="19" endline="19" severity="info" message="Avoid excessively long variable names like $averageCharactersFrequency. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="22" endline="22" severity="info" message="Avoid excessively long variable names like $averageNumberOfWordsInSentence. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="24" endline="24" severity="info" message="Avoid excessively long variable names like $averageNumberOfCharacters. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="26" endline="26" severity="info" message="Avoid excessively long variable names like $averageNumberOfSentences. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="27" endline="27" severity="info" message="Avoid excessively long variable names like $averageNumberOfPalindromeWords. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="52" endline="52" severity="info" message="Avoid excessively long variable names like $averageCharactersFrequency. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="54" endline="54" severity="info" message="Avoid excessively long variable names like $singleTextCharactersFrequency. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="58" endline="60" severity="error" message="The method getAverageCharactersFrequency uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them. (ElseExpression, Clean Code Rules) " externalInfoUrl="https://phpmd.org/rules/cleancode.html#elseexpression" />
+  </file>
+  <file name="C:\xampp\htdocs\php-mentoring-program-intermidiate-2022\src\phpAdvanced\Services\TextStatisticsService.php">
+    <error line="29" endline="29" severity="info" message="Avoid excessively long variable names like $textStatisticsRepository. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="41" endline="41" severity="info" message="Avoid excessively long variable names like $textStatisticsRepository. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="124" endline="124" severity="info" message="Avoid excessively long variable names like $totalNumberOfCharacters. Keep variable name length under 20. (LongVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#longvariable" />
+    <error line="258" endline="258" severity="info" message="Avoid variables with short names like $i. Configured minimum length is 3. (ShortVariable, Naming Rules) " externalInfoUrl="https://phpmd.org/rules/naming.html#shortvariable" />
+    <error line="265" endline="267" severity="error" message="The method getInReversedOrder uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them. (ElseExpression, Clean Code Rules) " externalInfoUrl="https://phpmd.org/rules/cleancode.html#elseexpression" />
+  </file>
+</checkstyle>
