@@ -2,7 +2,7 @@
 
 namespace phpBasics;
 
-class TextStatisticsController
+class TextStatisticsService
 {
     private string $text;
 
@@ -16,6 +16,9 @@ class TextStatisticsController
         return $this->text;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function processText(): array
     {
         $timeStart = microtime(true);
@@ -67,6 +70,9 @@ class TextStatisticsController
         return count($this->getSentences());
     }
 
+    /**
+     * @return array<string, int>
+     */
     public function getCharactersFrequency(): array
     {
         $frequency = mb_str_split(mb_strtolower($this->text));
@@ -78,6 +84,9 @@ class TextStatisticsController
         return $frequency;
     }
 
+    /**
+     * @return array<string, double>
+     */
     public function getCharactersDistributionAsPercentageOfTotal(): array
     {
         $totalNumberOfCharacters = $this->getNumberOfCharacters();
@@ -114,6 +123,9 @@ class TextStatisticsController
         return $this->getNumberOfWords() / $this->getNumberOfSentences();
     }
 
+    /**
+     * @return array<string, int>
+     */
     public function getMostUsedWords(int $limit): array
     {
         $words = $this->getWords();
@@ -125,6 +137,9 @@ class TextStatisticsController
         return array_slice($wordsFrequency, 0, $limit);
     }
 
+    /**
+     * @return array<string, int>
+     */
     public function getLongestWords(int $limit): array
     {
         $wordsLengths = $this->getEachWordLengthFromText();
@@ -134,6 +149,9 @@ class TextStatisticsController
         return array_slice($wordsLengths, 0, $limit);
     }
 
+    /**
+     * @return array<string, int>
+     */
     public function getShortestWords(int $limit): array
     {
         $wordsLengths = $this->getEachWordLengthFromText();
@@ -143,6 +161,9 @@ class TextStatisticsController
         return array_slice($wordsLengths, 0, $limit);
     }
 
+    /**
+     * @return array<string, int>
+     */
     public function getLongestSentences(int $limit): array
     {
         $sentencesLengths = $this->getEachSentenceLength();
@@ -152,6 +173,9 @@ class TextStatisticsController
         return array_slice($sentencesLengths, 0, $limit);
     }
 
+    /**
+     * @return array<string, int>
+     */
     public function getShortestSentences(int $limit): array
     {
         $sentencesLengths = $this->getEachSentenceLength();
@@ -175,6 +199,9 @@ class TextStatisticsController
         return $count;
     }
 
+    /**
+     * @return array<string, int>
+     */
     public function getLongestPalindromes(int $limit): array
     {
         $palindromesLengths = $this->getEachPalindromeLength();
@@ -184,6 +211,9 @@ class TextStatisticsController
         return array_slice($palindromesLengths, 0, $limit);
     }
 
+    /**
+     * @return array<string, int>
+     */
     public function getShortestPalindromes(int $limit): array
     {
         $palindromesLengths = $this->getEachPalindromeLength();
@@ -231,6 +261,9 @@ class TextStatisticsController
         return $temp . $out;
     }
 
+    /**
+     * @return array<string>
+     */
     private function getWords(): array
     {
         $charsToBeRemoved = ['?', '!', ',', ';', ':', '.'];
@@ -240,6 +273,9 @@ class TextStatisticsController
         return preg_split('/\s+/', $onlyText);
     }
 
+    /**
+     * @return array<string>
+     */
     private function getSentences(): array
     {
         $flags = PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY;
@@ -247,6 +283,9 @@ class TextStatisticsController
         return preg_split('/(?<=[.!?])\s+/u', $this->text, -1, $flags);
     }
 
+    /**
+     * @return array<string, int>
+     */
     private function getEachSentenceLength(): array
     {
         $sentences = $this->getSentences();
@@ -259,6 +298,9 @@ class TextStatisticsController
         return $sentencesLengths;
     }
 
+    /**
+     * @return array<string, int>
+     */
     private function getEachPalindromeLength(): array
     {
         $words = $this->getWords();
@@ -270,6 +312,9 @@ class TextStatisticsController
         return $this->getEachWordLengthFromArray($palindromes);
     }
 
+    /**
+     * @return array<string, int>
+     */
     private function getEachWordLengthFromText(): array
     {
         $words = $this->getWords();
@@ -277,6 +322,10 @@ class TextStatisticsController
         return $this->getEachWordLengthFromArray($words);
     }
 
+    /**
+     * @param array<string> $words
+     * @return array<string, int>
+     */
     private function getEachWordLengthFromArray(array $words): array
     {
         $wordsLengths = [];
