@@ -3,45 +3,45 @@
 namespace Tests\phpBasics;
 
 use PHPUnit\Framework\TestCase;
-use phpBasics\TextStatisticsController;
+use phpBasics\TextStatisticsService;
 
-class TextStatisticsControllerTest extends TestCase
+class TextStatisticsServiceTest extends TestCase
 {
-    protected TextStatisticsController $textStatisticsController;
+    protected TextStatisticsService $textStatisticsService;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->textStatisticsController = new TextStatisticsController();
+        $this->textStatisticsService = new TextStatisticsService();
     }
 
     public function testGetNumberOfCharactersWorksCorrectly()
     {
         $text = 'Hello world';
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame(mb_strlen($text), $this->textStatisticsController->getNumberOfCharacters());
+        $this->assertSame(mb_strlen($text), $this->textStatisticsService->getNumberOfCharacters());
     }
 
     public function testGetNumberOfWordsWorksCorrectly()
     {
         $text = 'Hello world! Some test txt 4';
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
         $numberOfWords = 6;
 
-        $this->assertSame($numberOfWords, $this->textStatisticsController->getNumberOfWords());
+        $this->assertSame($numberOfWords, $this->textStatisticsService->getNumberOfWords());
     }
 
     public function testGetNumberOfSentencesWorksCorrectly()
     {
         $text = 'Sentence 1. Sentence 2! Sentence 3... Sentence 4?! Sentence 5.';
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
         $numberOfSentences = 5;
 
-        $this->assertSame($numberOfSentences, $this->textStatisticsController->getNumberOfSentences());
+        $this->assertSame($numberOfSentences, $this->textStatisticsService->getNumberOfSentences());
     }
 
     public function testGetCharactersFrequencyWorksCorrectly()
@@ -55,9 +55,9 @@ class TextStatisticsControllerTest extends TestCase
             ' ' => 1,
         ];
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertEquals($frequency, $this->textStatisticsController->getCharactersFrequency());
+        $this->assertEquals($frequency, $this->textStatisticsService->getCharactersFrequency());
     }
 
     public function testGetCharactersDistributionAsPercentageOfTotalWorksCorrectly()
@@ -74,9 +74,9 @@ class TextStatisticsControllerTest extends TestCase
             '!' => 10,
         ];
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertEquals($frequency, $this->textStatisticsController->getCharactersDistributionAsPercentageOfTotal());
+        $this->assertEquals($frequency, $this->textStatisticsService->getCharactersDistributionAsPercentageOfTotal());
     }
 
     public function testGetAverageWordLengthWorksCorrectly()
@@ -84,9 +84,9 @@ class TextStatisticsControllerTest extends TestCase
         $text = 'Some random new txt';
         $averageWordLength = 4;
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($averageWordLength, $this->textStatisticsController->getAverageWordLength());
+        $this->assertSame($averageWordLength, $this->textStatisticsService->getAverageWordLength());
     }
 
     public function testGetAverageNumberOfWordsInSentenceWorksCorrectly()
@@ -94,9 +94,9 @@ class TextStatisticsControllerTest extends TestCase
         $text = 'Sentence 1. Sentence number 2. Sentence sentence sentence 3!';
         $averageNumberOfWords = 3;
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($averageNumberOfWords, $this->textStatisticsController->getAverageNumberOfWordsInSentence());
+        $this->assertSame($averageNumberOfWords, $this->textStatisticsService->getAverageNumberOfWordsInSentence());
     }
 
     public function testGetMostUsedWordsWorksCorrectly()
@@ -110,9 +110,9 @@ class TextStatisticsControllerTest extends TestCase
             'is' => 2,
         ];
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($topFiveWords, $this->textStatisticsController->getMostUsedWords(5));
+        $this->assertSame($topFiveWords, $this->textStatisticsService->getMostUsedWords(5));
     }
 
     public function testGetLongestWordsWorksCorrectly()
@@ -125,9 +125,9 @@ class TextStatisticsControllerTest extends TestCase
             'industry' => 8,
         ];
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($topThreeWords, $this->textStatisticsController->getLongestWords(3));
+        $this->assertSame($topThreeWords, $this->textStatisticsService->getLongestWords(3));
     }
 
     public function testGetShortestWordsWorksCorrectly()
@@ -140,9 +140,9 @@ class TextStatisticsControllerTest extends TestCase
             'and' => 3,
         ];
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($topThreeWords, $this->textStatisticsController->getShortestWords(3));
+        $this->assertSame($topThreeWords, $this->textStatisticsService->getShortestWords(3));
     }
 
     public function testGetLongestSentencesWorksCorrectly()
@@ -155,9 +155,9 @@ class TextStatisticsControllerTest extends TestCase
             'Sentence number 1.' => mb_strlen('Sentence number 1.'),
         ];
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($topThreeSentences, $this->textStatisticsController->getLongestSentences(3));
+        $this->assertSame($topThreeSentences, $this->textStatisticsService->getLongestSentences(3));
     }
 
     public function testGetShortestSentencesWorksCorrectly()
@@ -170,9 +170,9 @@ class TextStatisticsControllerTest extends TestCase
             'Sentence number 1.' => mb_strlen('Sentence number 1.'),
         ];
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($topThreeSentences, $this->textStatisticsController->getShortestSentences(3));
+        $this->assertSame($topThreeSentences, $this->textStatisticsService->getShortestSentences(3));
     }
 
     public function testGetNumberOfPalindromesWorksCorrectly()
@@ -180,9 +180,9 @@ class TextStatisticsControllerTest extends TestCase
         $text = 'txt text test 121 889988';
         $numberOfPalindromes = 3;
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($numberOfPalindromes, $this->textStatisticsController->getNumberOfPalindromes());
+        $this->assertSame($numberOfPalindromes, $this->textStatisticsService->getNumberOfPalindromes());
     }
 
     public function testGetLongestPalindromesWorksCorrectly()
@@ -194,9 +194,9 @@ class TextStatisticsControllerTest extends TestCase
             '35t53' => 5,
         ];
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($topThreePalindromes, $this->textStatisticsController->getLongestPalindromes(3));
+        $this->assertSame($topThreePalindromes, $this->textStatisticsService->getLongestPalindromes(3));
     }
 
     public function testGetShortestPalindromesWorksCorrectly()
@@ -208,9 +208,9 @@ class TextStatisticsControllerTest extends TestCase
             '1tt1' => 4,
         ];
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($topThreePalindromes, $this->textStatisticsController->getShortestPalindromes(3));
+        $this->assertSame($topThreePalindromes, $this->textStatisticsService->getShortestPalindromes(3));
     }
 
     public function testIsPalindromeWorksCorrectly()
@@ -218,11 +218,11 @@ class TextStatisticsControllerTest extends TestCase
         $palindrome = 'Draw, O coward!';
         $nonPalindrome = 'Some random text!';
 
-        $this->textStatisticsController->setText($palindrome);
-        $this->assertTrue($this->textStatisticsController->isPalindrome());
+        $this->textStatisticsService->setText($palindrome);
+        $this->assertTrue($this->textStatisticsService->isPalindrome());
 
-        $this->textStatisticsController->setText($nonPalindrome);
-        $this->assertFalse($this->textStatisticsController->isPalindrome());
+        $this->textStatisticsService->setText($nonPalindrome);
+        $this->assertFalse($this->textStatisticsService->isPalindrome());
     }
 
     public function testGetReversedWorksCorrectly()
@@ -230,9 +230,9 @@ class TextStatisticsControllerTest extends TestCase
         $text = 'Hello world';
         $reversed = 'dlrow olleH';
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($reversed, $this->textStatisticsController->getReversed());
+        $this->assertSame($reversed, $this->textStatisticsService->getReversed());
     }
 
     public function testGetInReversedOrderWorksCorrectly()
@@ -240,8 +240,8 @@ class TextStatisticsControllerTest extends TestCase
         $text = 'Hello world!';
         $inReversedOrder = '!world Hello';
 
-        $this->textStatisticsController->setText($text);
+        $this->textStatisticsService->setText($text);
 
-        $this->assertSame($inReversedOrder, $this->textStatisticsController->getInReversedOrder());
+        $this->assertSame($inReversedOrder, $this->textStatisticsService->getInReversedOrder());
     }
 }

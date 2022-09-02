@@ -39,13 +39,13 @@ class TextStatisticsRepository
             ->getResult();
     }
 
-    public function create(string $textHash, array $statistic, string $sessionId): StatisticRecord
+    public function create(string $textHash, array $statistic, string $sessionId, ?string $timestamp = null): StatisticRecord
     {
         $statisticRecord = new StatisticRecord();
 
         $statisticRecord->setStatistic($statistic);
         $statisticRecord->setTextHash($textHash);
-        $statisticRecord->setTimestamp(date("Y-m-d H:i:s"));
+        $statisticRecord->setTimestamp($timestamp ?? Carbon::now()->toDateTimeString());
         $statisticRecord->setSessionId($sessionId);
 
         $this->entityManager->persist($statisticRecord);

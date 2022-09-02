@@ -1,9 +1,9 @@
 <?php
 
-use phpBasics\TextStatisticsController;
+use phpBasics\TextStatisticsService;
 
 if (isset($_POST['submit'])) {
-    $textStatisticsController = new TextStatisticsController();
+    $textStatisticsController = new TextStatisticsService();
     $textStatisticsController->setText($_POST['text']);
 
     $result = $textStatisticsController->processText();
